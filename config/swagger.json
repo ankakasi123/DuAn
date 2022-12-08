@@ -1,0 +1,109 @@
+{
+    "openapi" : "3.0.0",
+    "info": {
+        "title": "tesst apt",
+        "description": "This is a sample server for a pet store.",
+        "termsOfService": "http://example.com/terms/",
+        "contact": {
+          "name": "API Support",
+          "url": "http://www.example.com/support",
+          "email": "support@example.com"
+        },
+        "license": {
+          "name": "Apache 2.0",
+          "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
+        },
+        "version": "1.0.1"
+      },
+      "servers": [
+        {
+          "url": "http://localhost:5000/api/v1",
+          "description": "localhost"
+        }
+      ],
+      "tags": [
+        {
+            "name": "users",
+            "description": "API danh muc he thong"
+        }
+      ],
+      "consumes": [
+        "application/json"
+      ],
+      "produces": [
+        "application/json"
+      ],
+      "paths": {
+        "/users/login/me": {
+            "get": {
+                "tags": [
+                    "users"
+                ],
+                "summary": "get user login",
+                "responses": {
+                    "200": {
+                      "description": "OK",
+                      "content": {
+                        "application/json": {},
+                        "application/xml": {}
+                      },
+                      "schema": {
+                        "$ref" : "#/components/schema/users"
+                      }
+                    }
+                
+                }
+            }
+        },
+        "paths": {
+            "/users/login": {
+                "post": {
+                    "tags": [
+                        "login"
+                    ],
+                    "summary": "login user",
+                    "requestBody": {
+                        "description": "login 1 user",
+                        "required": true,
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "components/schema/users/login"
+                                }
+                            }
+                        }
+                      },
+                    "responses": {
+                        "200": {
+                          "description": "OK",
+                          "content": {
+                            "application/json": {},
+                            "application/xml": {}
+                          },
+                          "schema": {
+                            "$ref" : "#/components/schema/users"
+                          }
+                        }
+                    
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schema" : {
+            "users" : {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    "name": {
+                        "type": "string"
+                    }
+                }
+            }
+        }
+    }
+}

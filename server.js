@@ -21,11 +21,19 @@ app.use(express.json());
 // cài static file
 const publicPathDirectory = path.join(__dirname, "./public");
 app.use("/public", express.static(publicPathDirectory));
+app.get("/home", (req,res)=>{
+  res.send("hello world!")   
+})
 // cors add all request
 app.use(cors());
 // dùng router
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 app.use("/api/v1", rootRouter);
+
+
+
+
+
 
 // lắng nghe sự kiện kết nối
 app.listen(port, async () => {

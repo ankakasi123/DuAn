@@ -11,7 +11,7 @@ const swaggerDocument = require('./config/swagger.json');
 const app = express();
 
 const cors = require('cors')
-const port = process.env.POST || 4567;
+const port = process.env.POST || 4567
 //cài đặt Fingerprint
 app.use(Fingerprint());
 
@@ -21,7 +21,7 @@ app.use(express.json());
 // cài static file
 const publicPathDirectory = path.join(__dirname, "./public");
 app.use("/public", express.static(publicPathDirectory));
-app.get("/home", (req,res)=>{
+app.get("/", (req,res)=>{
   res.send("hello world!")   
 })
 // cors add all request

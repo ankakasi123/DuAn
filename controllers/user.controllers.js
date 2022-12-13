@@ -164,14 +164,12 @@ const userOne = async (req, res) => {
 const updatePrice = async (req, res) => {
   const {user} = req
   const email = user.email
-  const { price, vip, chiSo } = req.body;
+  const { price } = req.body;
   try {
     const detailUser = await User.findOne({
       where: { email },
     });
     detailUser.price = price;
-    detailUser.vip = vip;
-    detailUser.chiSo = chiSo;
     await detailUser.save();
     res.status(200).send(detailUser);
   } catch (error) {

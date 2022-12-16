@@ -97,26 +97,6 @@ const uploadAvatar = async (req, res) => {
   res.send(userFound);
 };
 
-// //upload price
-// const updatePrice = async (req, res) => {
-//   const { id } = req.params;
-//   const { price, vip, chiSo } = req.body;
-//   try {
-//     const detailUser = await User.findOne({
-//       where: { id },
-//     });
-//     detailUser.price = price;
-//     detailUser.vip = vip;
-//     detailUser.chiSo = chiSo;
-//     await detailUser.save();
-//     res.status(200).send(detailUser);
-//   } catch (error) {
-//     res.status(500).send(error);
-//   }
-// };
-
-
-
 // xóa user
 const deleteUser = async (req, res) => {
   const { id } = req.params;
@@ -160,7 +140,7 @@ const userOne = async (req, res) => {
       res.status(500).send(error);
     }
 };
-//upload Thông tin user
+//upload price user
 const updatePrice = async (req, res) => {
   const {user} = req
   const email = user.email
